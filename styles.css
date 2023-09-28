@@ -1,21 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap');
 *{
     margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
 }
 body{
     background-color: #82708B;
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center;
 }
+main{
+    flex: 2;
+    
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
 
 /*UI*/
 #title{
-    color: #FFFFFF;
     text-transform: uppercase;
     font-weight: 300;
     text-align: center;
-    margin-top: 20px;
 }
 #title::first-letter, #title span{
     font-size: 50px;
@@ -33,6 +37,10 @@ body{
     background-color: #2D2B2B;
     height: 120px; width: 270px;
     border-radius: 15px;
+    padding: 5px;
+    font-size: 50px;
+    display: flex; justify-content: end; align-items: end;
+    font-weight: 300;
 }
 
 .btn-row{
@@ -56,15 +64,23 @@ body{
 button.control{
     background-color: #7B3B3B;
 }
+button.control:hover{
+    background-color: #a35050;
+}
 button.operation{
     background-color: #7B5D3B;
+}
+button.operation:hover{
+    background-color: #a57d50;
 }
 button.number{
     background-color: #5F7053;
 }
+button.number:hover{
+    background-color: #89a179;
+}
 
 footer{
-    color: #FFFFFF;
     width: 100%;
     display: flex;
     justify-content: space-between;
