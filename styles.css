@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+*{
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+body{
+    background-color: #82708B;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+}
+
+/*UI*/
+#title{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 20px;
+}
+#title::first-letter, #title span{
+    font-size: 50px;
+}
+
+.calculator{
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    height: 450px; width: 300px;
+    margin-top: 20px;
+    display: flex; flex-direction: column; align-items: center; padding: 15px;
+}
+
+.screen{
+    background-color: #2D2B2B;
+    height: 120px; width: 270px;
+    border-radius: 15px;
+}
+
+.btn-row{
+    display: flex; gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5px 0;
+}
+.btn-row:first-of-type{
+    padding-top: 15px;
+}
+
+.btn-row button{
+    width: 57.5px; height: 50.5px;
+    border: none;
+    border-radius: 15px;
+}
+.btn-row button.btn-big{
+    width: 125px;
+}
+
+button.control{
+    background-color: #7B3B3B;
+}
+button.operation{
+    background-color: #7B5D3B;
+}
+button.number{
+    background-color: #5F7053;
+}
+
+footer{
+    color: #FFFFFF;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+}
