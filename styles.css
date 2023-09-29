@@ -39,8 +39,12 @@ main{
     border-radius: 15px;
     padding: 5px;
     font-size: 50px;
-    display: flex; justify-content: end; align-items: end;
+    display: flex; flex-direction: column; justify-content: end; align-items: end;
     font-weight: 300;
+}
+#mini-val{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .btn-row{
@@ -64,19 +68,19 @@ main{
 button.control{
     background-color: #7B3B3B;
 }
-button.control:hover{
+button.control:hover, button.control:focus{
     background-color: #a35050;
 }
 button.operation{
     background-color: #7B5D3B;
 }
-button.operation:hover{
+button.operation:hover, button.operation:focus{
     background-color: #a57d50;
 }
 button.number{
     background-color: #5F7053;
 }
-button.number:hover{
+button.number:hover, button.number:focus{
     background-color: #89a179;
 }
 
