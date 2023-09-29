@@ -1,4 +1,3 @@
-//<<< --- CALCULATIONS --- >>
 //<<< --- UI --- >>>
 //Elements
 let bigScreen = document.querySelector("#val");//Divide: ÷
@@ -41,12 +40,16 @@ function reset(){
 function saveVals(val, type){
     switch(type){
         case 1:
-            numbers.push(val);
+            numbers.push(Number(val));
             break;
         case 2:
             operations.push(val);
             break;
     }
+}
+
+function setNegative(){
+    
 }
 
 function parseNumber(val){
@@ -88,7 +91,7 @@ function parseOperation(val){
         saveVals(val, 2);
     }
     else{
-        console.log(numbers);
+        parseCalculation();
         getSum = true;
     }
 }
@@ -107,3 +110,44 @@ btns.forEach(btn =>{
         }
     });
 });
+
+//<<< --- CALCULATIONS --- >>
+function getOp(i){
+    switch(operations[i]){
+        case "+":
+            return 1;
+        case "-":
+            return 2;
+        case "*":
+            return 3;
+        case "÷":
+            return 4;
+    }
+}
+
+function calculate(type, num1, num2){
+    switch (type) {
+        case 1:
+            return num1 + num2
+        case 2:
+            return num1 - num2
+        case 3:
+            return num1 * num2
+        case 4:
+            if(num2 == 0){
+                return "ERROR";
+            }else{return (num1 / num2).toFixed(7)}
+        default:
+            break;
+    }
+}
+
+function parseCalculation(){
+    let op = 0;
+    let ans = numbers[0]
+    for(let i = 1; i < numbers.length; i++){
+        ans = calculate(getOp(op++), ans, numbers[i]);
+    } 
+    setScreen(ans, bigScreen, 1);
+    setScreen(ans, miniScreen, 2);
+}
