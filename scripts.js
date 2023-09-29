@@ -91,10 +91,21 @@ function parseControl(val){
     }
     else if(val == "+/-"){
         setNegative();
-    }//Need to do percent
+    }
+    else if(val == "←"){
+        let bigVal = bigScreen.innerHTML;
+        if(bigVal.length == 1){
+            setScreen("", bigScreen, 3);
+        }
+        else if(bigVal.length > 1){
+            setScreen(bigVal.substring(0, bigVal.length-1), bigScreen, 1);
+        }
+        
+    }
 }
 
 function parseOperation(val){
+    decimalSet = false;
     if(val == "x"){val = "*";}
     saveVals(bigScreen.innerHTML, 1);
     setScreen((" " + val + " "), miniScreen, 2);
