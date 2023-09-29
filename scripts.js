@@ -49,7 +49,19 @@ function saveVals(val, type){
 }
 
 function setNegative(){
-    
+    if(bigScreen.innerHTML[0] != "-"){
+        let replace = "-" + bigScreen.innerHTML;
+        setScreen(replace, bigScreen,  1);
+    }
+    let space = miniScreen.innerHTML.lastIndexOf(" ");
+    if(space != -1){
+        let replace = miniScreen.innerHTML.substring(0, space+1) + "-" + miniScreen.innerHTML.substring(space+1);
+        setScreen(replace, miniScreen,  1);
+    }
+    else{
+        let replace = "-" + miniScreen.innerHTML;
+        setScreen(replace, miniScreen,  1);
+    }
 }
 
 function parseNumber(val){
@@ -78,8 +90,7 @@ function parseControl(val){
         reset();
     }
     else if(val == "+/-"){
-        let replace = "-" + bigScreen.innerHTML;
-        setScreen(replace, bigScreen,  1);//Need to do miniscreen (more complicated)
+        setNegative();
     }//Need to do percent
 }
 
