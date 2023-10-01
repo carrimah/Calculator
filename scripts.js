@@ -64,6 +64,28 @@ function setNegative(){
     }
 }
 
+function setBackspace(){
+    let bigVal = bigScreen.innerHTML;
+    let miniVal = miniScreen.innerHTML;
+
+    if(bigVal.length == 1){
+        setScreen("", bigScreen, 3);
+        override = true;
+    }
+    else if(bigVal.length > 1){
+        setScreen(bigVal.substring(0, bigVal.length-1), bigScreen, 1);
+    }
+
+    if(miniVal.length == 1){
+        setScreen("", miniScreen, 3);
+    }
+    else if(miniVal.length > 1){
+        if(miniVal.substring(miniVal.length-1) != " "){
+            setScreen(miniVal.substring(0, miniVal.length-1), miniScreen, 1);
+        }
+    }
+}
+
 function parseNumber(val){
     if(getSum){
         reset();
@@ -93,12 +115,8 @@ function parseControl(val){
         setNegative();
     }
     else if(val == "←"){
-        let bigVal = bigScreen.innerHTML;
-        if(bigVal.length == 1){
-            setScreen("", bigScreen, 3);
-        }
-        else if(bigVal.length > 1){
-            setScreen(bigVal.substring(0, bigVal.length-1), bigScreen, 1);
+        if(!getSum){
+            setBackspace();
         }
         
     }
