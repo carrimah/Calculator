@@ -108,21 +108,21 @@ function parseNumber(val){
 }
 
 function parseControl(val){
-    if(val == "AC"){
+    if(val == "AC" || val == "Delete"){
         reset();
     }
-    else if(val == "+/-"){
+    else if(val == "+/-" || val == "_"){
         setNegative();
     }
-    else if(val == "←"){
+    else if(val == "←" || val == "Backspace"){
         if(!getSum){
             setBackspace();
         }
-        
     }
 }
 
 function parseOperation(val){
+    if(val == "Enter"){val = "="}
     decimalSet = false;
     if(val == "x"){val = "*";}
     saveVals(bigScreen.innerHTML, 1);
@@ -191,3 +191,25 @@ function parseCalculation(){
     setScreen(ans, bigScreen, 1);
     setScreen(ans, miniScreen, 2);
 }
+
+//<<< --- KEYBOARD SUPPORT --- >>>
+function keyboardSupport(key){
+    if(key == 0 || key == 1 || key == 2 || key == 3 ||
+       key == 4 || key == 5 || key == 6 ||
+       key == 7 || key == 8 || key == 9){
+        parseNumber(key);
+    }
+    else if(key == "+" || key == "-" ||
+            key == "*" || key == "/" || 
+            key == "=" || key == "Enter"){
+        parseOperation(key);
+        override = true; opSet = true;
+    }
+    else if (key == "Backspace" || key == "Delete" || key == "_"){
+        parseControl(key);
+    }
+}
+
+window.addEventListener("keydown", e =>{
+    keyboardSupport(e.key);
+})
