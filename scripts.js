@@ -3,6 +3,9 @@
 let bigScreen = document.querySelector("#val");//Divide: ÷
 let miniScreen = document.querySelector("#mini-val");
 let btns = document.querySelectorAll("button");
+let info = document.querySelector("#info");
+let infoTxt = document.querySelector("#info-txt");
+let title = document.querySelector("#title");
 //States
 let override = true;
 let decimalSet = false;
@@ -196,7 +199,7 @@ function parseCalculation(){
 function keyboardSupport(key){
     if(key == 0 || key == 1 || key == 2 || key == 3 ||
        key == 4 || key == 5 || key == 6 ||
-       key == 7 || key == 8 || key == 9){
+       key == 7 || key == 8 || key == 9 || key == "."){
         parseNumber(key);
     }
     else if(key == "+" || key == "-" ||
@@ -213,3 +216,11 @@ function keyboardSupport(key){
 window.addEventListener("keydown", e =>{
     keyboardSupport(e.key);
 })
+
+//<<< --- INFO --- >>>
+info.addEventListener("mouseenter", ()=>{
+    infoTxt.style.display = "block";
+});
+info.addEventListener("mouseleave", ()=>{
+    infoTxt.style.display = "none";
+});

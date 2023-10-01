@@ -24,6 +24,10 @@ main{
 #title::first-letter, #title span{
     font-size: 50px;
 }
+#title:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .calculator{
     background-color: #D9D9D9;
@@ -91,4 +95,33 @@ footer{
     padding: 10px;
     position: absolute;
     bottom: 0;
+}
+
+#info{
+    position: absolute; top: 0; right: 0;
+    margin: 10px;
+}
+#info:hover{
+    cursor: pointer;
+    filter: invert(1);
+}
+
+#info-txt{
+    background-color: rgba(123, 59, 59, 0.8);
+    position: absolute; top: 0; right: 0;
+    width: 300px; padding: 10px;
+    display: none;
+}
+#info-txt ul{
+    margin-left: 18px;
+}
+
+table, th, td {
+    border: 1px solid #FFFFFF;
+    border-collapse: collapse;
+}
+
+td{
+    width: 150px; height: 25px;
+    padding-left: 5px;
 }
