@@ -24,7 +24,7 @@ main{
 #title::first-letter, #title span{
     font-size: 50px;
 }
-#title:hover{
+#title:hover, footer *:hover{
     font-weight: bold;
     cursor: pointer;
 }
@@ -95,6 +95,10 @@ footer{
     padding: 10px;
     position: absolute;
     bottom: 0;
+}
+a{
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 #info{

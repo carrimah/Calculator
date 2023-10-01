@@ -224,3 +224,6 @@ info.addEventListener("mouseenter", ()=>{
 info.addEventListener("mouseleave", ()=>{
     infoTxt.style.display = "none";
 });
+
+//<<< --- PAGE RELOAD --- >>>
+title.addEventListener("click", ()=>{reset();});
